@@ -44,12 +44,16 @@ export class AuthService {
     localStorage.setItem('token', data.token);
     localStorage.setItem('refreshToken', data.refreshToken);
     localStorage.setItem('tokenExpiration', data.expiration);
+    localStorage.setItem('username', data.username);
+    localStorage.setItem('userId', data.userId.toString());
   }
 
   logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('refreshToken');
     localStorage.removeItem('tokenExpiration');
+    localStorage.removeItem('username');
+    localStorage.removeItem('userId');
     this.currentUserSubject.next(null);
   }
 

@@ -40,7 +40,7 @@ export class Sidebar {
       title: 'warehouse managements',
       items: [
         { name: 'Warehouses', icon: '/dashboard.svg', route: '/warehouses' },
-        { name: 'Add Warehouse', icon: '/dashboard.svg', route: '/warehouses/add' },
+        { name: 'Add Warehouse', icon: '/dashboard.svg', route: '/add-warehouse' },
       ]
     },
     {

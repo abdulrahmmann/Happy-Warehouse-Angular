@@ -125,6 +125,13 @@ button {
   @apply bg-transparent! w-full text-primary-text! h-10! border-primary-text! focus:ring-4! focus:ring-primary/40! focus:border! focus:border-primary!;
 }
 
+.p-select {
+  @apply bg-transparent! w-full text-primary-text! h-10! border-primary-text! focus:ring-4! focus:ring-primary/40! focus:border! focus:border-primary!;
+}
+.p-select-label {
+  color: var(--color-secondary-dark-text) !important;
+}
+
 .p-checkbox-box {
   @apply bg-transparent! border-primary!;
 }

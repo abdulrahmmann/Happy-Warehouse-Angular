@@ -3,8 +3,9 @@ export interface AuthenticationResponse {
   timestamp: string; // DateTime
   message: string;
   errors?: string[];
-  username?: string;
-  email?: string;
+  userId: number;
+  username: string;
+  email: string;
   token: string;
   refreshToken:string;
   refreshTokenExpiration: string; // DateTime

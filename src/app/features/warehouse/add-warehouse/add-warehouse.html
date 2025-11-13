@@ -1,0 +1,133 @@
+<app-layout>
+
+  <section class="max-w-5xl mx-auto">
+
+    <div class="flex items-center justify-between">
+      <h3 class="text-base font-medium text-white">Add New Warehouse</h3>
+      <button
+        (click)="BackToWarehouses()"
+        class="text-sm text-white font-medium p-3 rounded-lg bg-[#416659]">
+        Back To Warehouses
+      </button>
+    </div>
+
+    <div class="mt-3">
+      <div class="box box--stacked">
+        <div class="p-7">
+
+          <form [formGroup]="addWarehouseForm" (ngSubmit)="onSubmit()">
+            <div class="flex-col block mt-5 xl:items-center sm:flex xl:flex-row first:mt-0 first:pt-0">
+              <label class="inline-block mb-2 sm:mb-0 sm:text-right xl:w-60">
+                <div class="text-left">
+                  <div class="flex items-center">
+                    <div class="text-sm font-medium">Warehouse Name</div>
+                    <div
+                      class="ml-2.5 px-2 py-0.5 bg-slate-100 text-slate-500 text-[10px] rounded-md border border-slate-200">
+                      Required
+                    </div>
+                  </div>
+                  <div class="mt-1.5 text-xs leading-relaxed text-slate-500/80">
+                    Enter the full warehouse name.
+                  </div>
+                </div>
+              </label>
+              <div class="flex-1">
+                <input pInputText
+                       type="text"
+                       id="warehouseName"
+                       name="warehouseName"
+                       placeholder="Warehouse Name"
+                       class="text-sm"
+                       formControlName="warehouseName"
+                />
+              </div>
+            </div>
+
+            <div class="flex-col block mt-5 xl:items-center sm:flex xl:flex-row first:mt-0 first:pt-0">
+              <label class="inline-block mb-2 sm:mb-0 sm:text-right xl:w-60">
+                <div class="text-left">
+                  <div class="flex items-center">
+                    <div class="text-sm font-medium">Address and City</div>
+                    <div
+                      class="ml-2.5 px-2 py-0.5 bg-slate-100 text-slate-500 text-[10px] rounded-md border border-slate-200">
+                      Required
+                    </div>
+                  </div>
+                  <div class="mt-1.5 text-xs leading-relaxed text-slate-500/80">
+                    Enter the full warehouse Address and City.
+                  </div>
+                </div>
+              </label>
+              <div class="flex-1 flex-col sm:flex-row flex items-center gap-2">
+                <input pInputText
+                       type="text"
+                       id="warehouseAddress"
+                       name="warehouseAddress"
+                       placeholder="Warehouse Address"
+                       class="text-sm"
+                       formControlName="warehouseAddress"
+                />
+                <input pInputText
+                       type="text"
+                       id="warehouseCity"
+                       name="warehouseCity"
+                       placeholder="Warehouse City"
+                       class="text-sm"
+                       formControlName="warehouseCity"
+                />
+              </div>
+            </div>
+
+            <div class="flex-col block mt-5 xl:items-center sm:flex xl:flex-row first:mt-0 first:pt-0">
+              <label class="inline-block mb-2 sm:mb-0sm:text-right xl:w-60">
+                <div class="text-left">
+                  <div class="flex items-center">
+                    <div class="text-sm font-medium">Warehouse Country</div>
+                    <div
+                      class="ml-2.5 px-2 py-0.5 bg-slate-100 text-slate-500 text-[10px] rounded-md border border-slate-200">
+                      Required
+                    </div>
+                  </div>
+                  <div class="mt-1.5 text-xs leading-relaxed text-slate-500/80">
+                    Select warehouse country.
+                  </div>
+                </div>
+              </label>
+              <div class="flex-1">
+                <p-select
+                  [options]="countries"
+                  optionLabel="name"
+                  [filter]="true"
+                  filterBy="name"
+                  [showClear]="true"
+                  placeholder="Select a Country"
+                  class="w-full"
+                  formControlName="warehouseCountry"
+                >
+
+                  <ng-template #selectedItem let-selectedOption>
+                    <div class="flex items-center gap-2">
+                      <div>{{ selectedOption?.name }}</div>
+                    </div>
+                  </ng-template>
+
+                  <ng-template let-country #item>
+                    <div class="flex items-center gap-2">
+                      <div class="text-primary-text!">{{ country.name }}</div>
+                    </div>
+                  </ng-template>
+
+                </p-select>
+              </div>
+            </div>
+
+            <button type="submit" class="text-sm text-white font-medium p-3 rounded-lg bg-[#416659] block ml-auto mt-3 w-full sm:w-fit">Add Warehouse</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+</app-layout>
