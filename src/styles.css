@@ -1,1 +1,121 @@
-/* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+html,
+body {
+  font-family: "Roboto", sans-serif;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  background-color: #f4f7fa;
+  /*color: #3C4242;*/
+  color: #475569;
+  line-height: 1.25rem;
+  min-height: 100vh;
+  height: 100%;
+}
+
+:root {
+  --color-theme-1: rgba(26 46 5);
+  --color-theme-2: rgb(19 78 74);
+  --color-primary: rgb(26 46 5);
+  --color-secondary: rgb(226 232 240);
+  --color-success: rgb(13 148 136);
+  --color-info: rgb(8 145 178);
+  --color-warning: rgb(202 138 4);
+  --color-pending: rgb(194 65 12);
+  --color-danger: rgb(185 28 28);
+  --color-light: rgb(241 245 249);
+  --color-dark: rgb(30 41 59);
+}
+
+@theme {
+  --font-bebasNeue: "Roboto", sans-serif;
+
+  /* COLORS */
+  --color-theme-1: var(--color-theme-1);
+  --color-theme-2: var(--color-theme-2);
+
+  --color-theme-1-80: rgba(15, 23, 42, 0.80);
+  --color-theme-2-80: rgba(30, 41, 59, 0.80);
+
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-success: var(--color-success);
+  --color-info: var(--color-info);
+  --color-warning: var(--color-warning);
+  --color-pending: var(--color-pending);
+  --color-danger: var(--color-danger);
+  --color-light: var(--color-light);
+  --color-dark: var(--color-dark);
+
+  --color-primary-text: var(--color-primary-text);
+  --color-secondary-dark-text: var(--color-secondary-dark-text);
+  --color-secondary-light-text: var(--color-secondary-light-text);
+  --color-lavender-gray-text: var(--color-lavender-gray-text);
+  --color-white-gray-text: var(--color-white-gray-text);
+
+  /* BACKGROUND IMAGES */
+  --background-image-overlay: url("../public/bg-overlay.svg");
+  --background-image-auth: url("../public/bg-auth.jpg");
+
+  --background-image-gradient-100: linear-gradient(
+    to top,
+    var(--color-theme-1),
+    var(--color-theme-2)
+  );
+
+  /* SHADOWS */
+  --shadow-100: 0px 1px 3px 0px rgba(16, 24, 40, 0.1),
+}
+
+button {
+  cursor: pointer;
+}
+
+.bg-auth-overlay {
+  @apply bg-gradient-to-b from-theme-1 to-theme-2 before:absolute before:bg-overlay before:bg-right before:bg-no-repeat before:bg-cover before:w-full before:h-full
+}
+
+.gradient-text {
+  background: linear-gradient(to right, var(--color-primary), var(--color-theme-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.p-inputtext {
+  @apply bg-transparent! w-full text-primary-text! h-10! border-primary-text! focus:ring-4! focus:ring-primary/40! focus:border! focus:border-primary!;
+}
+
+.p-checkbox-box {
+  @apply bg-transparent! border-primary!;
+}
+
+.p-checkbox-checked .p-checkbox-box {
+  @apply bg-theme-2! border-transparent;
+}
+
+.p-checkbox-checked .p-checkbox-icon {
+  @apply text-white! size-3!;
+}
+
+.p-password {
+  @apply w-full!;
+}
+
+.btn-auth-submit {
+  @apply w-full rounded-lg bg-gradient-to-b from-theme-2 to-primary p-3 text-white text-base font-medium block mt-6 text-center cursor-pointer hover:bg-gradient-to-t transition-all;
+}
+
+.auth-bg-overlay {
+  @apply relative;
+}
+.auth-bg-overlay::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(55 48 163 / 25%);
+}

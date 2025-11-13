@@ -1,0 +1,86 @@
+<main class="h-screen w-screen bg-auth-overlay overflow-hidden">
+  <div class="relative h-full flex items-center justify-center">
+    <div class="container mx-auto px-3 h-full flex items-center justify-center">
+
+      <div class="max-w-[500px] w-full bg-[#f4f7fa] p-4 md:p-6 rounded-lg shadow-100">
+
+        <!-- Header -->
+        <div class="mb-6">
+          <div class="flex items-center gap-4">
+            <div class="rounded-[0.8rem] w-[55px] h-[55px] border border-primary/30 flex items-center justify-center">
+              <div
+                class="relative flex items-center justify-center w-[50px] rounded-[0.6rem] h-[50px] bg-gradient-to-b from-theme-1/90 to-theme-2/90 bg-white">
+                <div class="w-[26px] h-[26px] relative -rotate-45">
+                  <div class="absolute w-[20%] left-0 inset-y-0 my-auto rounded-full opacity-50 bg-white h-[75%]"></div>
+                  <div class="absolute w-[20%] inset-0 m-auto bg-white h-[120%] rounded-full"></div>
+                  <div class="absolute w-[20%] right-0 inset-y-0 my-auto rounded-full opacity-50 bg-white h-[75%]"></div>
+                </div>
+              </div>
+            </div>
+            <h2 class="text-lg sm:text-xl font-semibold text-primary">Happy Warehouse</h2>
+          </div>
+        </div>
+
+        <!-- Texts -->
+        <div class="text-center gradient-text mb-5">
+          <h1 class="font-bold text-lg mb-2">Welcome Back to Happy Warehouse</h1>
+          <p class="text-base font-medium">Sign in to your account</p>
+        </div>
+
+        <!-- <p-toast /> -->
+
+        <form [formGroup]="signinForm" (ngSubmit)="onSubmit()" >
+          <div class="mb-3">
+            <label class="block text-sm mb-1">Email</label>
+            <input pInputText
+                   type="text"
+                   id="email"
+                   name="email"
+                   placeholder="Enter your email"
+                   formControlName="loginEmail"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label class="block text-sm mb-1">Password</label>
+            <p-password
+              [toggleMask]="true"
+              [showClear]="true"
+              id="password"
+              name="password"
+              placeholder="Enter your Password"
+              formControlName="loginPassword"
+            />
+          </div>
+
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="flex items-center">
+                <p-checkbox inputid="remember" name="remember" value="remember">
+                  <div data-p-highlight="false" data-p-checked="false" class="p-checkbox p-component">
+                    <input type="checkbox" value="remember" id="remember" name="remember"
+                           class="p-checkbox-input">
+                    <div class="p-checkbox-box">
+                    </div>
+                  </div>
+                </p-checkbox>
+                <label for="remember" class="ml-2 mt-1 text-sm"> Remember for 30 days </label>
+              </div>
+            </div>
+            <a routerLink="#"
+               class="text-primary text-sm font-medium cursor-pointer underline">Forgot Password</a>
+          </div>
+
+          <button type="submit" class="btn-auth-submit" [disabled]="signinForm.invalid">Login</button>
+
+          <div class="text-sm font-normal mt-5 text-center text-secondary-dark-text">
+            Don't have any account?
+            <a routerLink="#" class="text-primary font-medium cursor-pointer hover:underline">Register</a>
+          </div>
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+</main>
