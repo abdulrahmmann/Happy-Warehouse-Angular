@@ -18,4 +18,11 @@ export const routes: Routes = [
       import("../../features/dashboard/dashboard").then(m => m.Dashboard),
     canActivate: [AuthGuard]
   },
+  {
+    path: "welcome",
+    loadComponent: () =>
+      import("../../features/welcome/welcome").then(m => m.Welcome),
+    canActivate: [AuthGuard]
+  },
+
 ];

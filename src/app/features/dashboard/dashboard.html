@@ -1,1 +1,74 @@
-<p>dashboard works!</p>
+<app-layout>
+
+  <section class="">
+    <h3 class="text-base font-medium text-white">General Reports: Warehouses With Inventory</h3>
+
+    <div class="grid grid-cols-12 gap-5 mt-3">
+      @for(warehouse of warehouses; track $index) {
+        <article
+          class="space-y-2 col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-3 p-5 border border-dashed rounded-[0.6rem] border-slate-300/80 box box--stacked">
+          <h4 class="text-sm xl:text-base font-semibold text-slate-500">
+            <span class="text-theme-1 font-medium">Warehouse:</span> {{warehouse.warehouseName}}
+          </h4>
+          <h4 class="text-sm xl:text-base font-semibold text-slate-500">
+            <span class="text-theme-1 font-medium">Country:</span>{{warehouse.warehouseCountry}} - {{warehouse.warehouseCity}}
+          </h4>
+          <h4 class="text-sm xl:text-base font-semibold text-slate-500">
+            <span class="text-theme-1 font-medium">Inventory Counts:</span> {{warehouse.itemsCount}}
+          </h4>
+          <h4 class="text-sm xl:text-base font-semibold text-slate-500">
+            <span class="text-theme-1 font-medium">Quantity Count:</span> {{warehouse.qtyCounts}}
+          </h4>
+        </article>
+      }
+    </div>
+  </section>
+
+
+  <section class="">
+    <h3 class="text-base font-medium mt-10">General Reports: Warehouse Status</h3>
+
+    <div class="grid grid-cols-12 gap-5 mt-3">
+      @for(item of warehouseStatus; track $index) {
+        <article
+          class="space-y-2 col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-3 p-5 border border-dashed rounded-[0.6rem] border-slate-300/80 box box--stacked">
+          <h4 class="text-sm xl:text-base font-semibold text-slate-500">
+            <span class="text-theme-1 font-medium">WarehouseId:</span> {{item.warehouseId}}
+          </h4>
+          <h4 class="text-sm xl:text-base font-semibold text-slate-500">
+            <span class="text-theme-1 font-medium">WarehouseName:</span>{{item.warehouseName}}
+          </h4>
+          <h4 class="text-sm xl:text-base font-semibold text-slate-500">
+            <span class="text-theme-1 font-medium">TotalItems:</span> {{item.totalItems}}
+          </h4>
+        </article>
+      }
+    </div>
+  </section>
+
+
+  <section class="">
+    <h3 class="text-base font-medium mt-10">General Reports: Top Items</h3>
+
+    <div class="grid grid-cols-12 gap-5 mt-3">
+      @for(item of topItems; track $index) {
+        <article
+          class="space-y-2 col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-3 p-5 border border-dashed rounded-[0.6rem] border-slate-300/80 box box--stacked">
+          <h4 class="text-sm xl:text-base font-semibold text-slate-500">
+            <span class="text-theme-1 font-medium">WarehouseName:</span> {{item.warehouseName}}
+          </h4>
+          <h4 class="text-sm xl:text-base font-semibold text-slate-500">
+            <span class="text-theme-1 font-medium">ItemName:</span>{{item.itemName}}
+          </h4>
+          <h4 class="text-sm xl:text-base font-semibold text-slate-500">
+            <span class="text-theme-1 font-medium">Quantity:</span> {{item.qty}}
+          </h4>
+          <h4 class="text-sm xl:text-base font-semibold text-slate-500">
+            <span class="text-theme-1 font-medium">SkuCode:</span> {{item.skuCode}}
+          </h4>
+        </article>
+      }
+    </div>
+  </section>
+
+</app-layout>

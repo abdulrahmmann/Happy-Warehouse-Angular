@@ -48,10 +48,10 @@ export class Login {
     this.authService.PostLogin(loginData).subscribe({
       next: (response) => {
         console.log('✅ Login success:', response);
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/welcome']);
       },
       error: (err) => {
-        console.error('❌ Login failed:', err.message());
+        console.error('ogin failed:', err.message());
         alert('Email or password is incorrect');
       },
     });

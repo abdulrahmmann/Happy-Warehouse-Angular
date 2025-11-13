@@ -13,7 +13,7 @@ const headers = new HttpHeaders({'Content-Type': 'application/json'});
 export class AuthService {
   constructor(private httpClient: HttpClient) {}
 
-  private currentUserSubject = new BehaviorSubject<any>(null);
+  private currentUserSubject = new BehaviorSubject<AuthenticationResponse | any>(null);
 
   currentUser$ = this.currentUserSubject.asObservable();
 
