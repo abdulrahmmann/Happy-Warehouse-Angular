@@ -80,6 +80,7 @@ export class AddWarehouse implements OnInit {
       next: (res) => {
         console.log('✅ Warehouse added successfully:', res);
         this.BackToWarehouses();
+        this.warehouseService.loadWarehouses();
       },
       error: (err) => {
         console.error('❌ Error adding warehouse:', err);

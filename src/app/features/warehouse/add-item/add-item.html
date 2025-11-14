@@ -6,43 +6,42 @@
       <div class="flex items-center gap-1">
         <h3 class="text-base font-medium text-white">Warehouses</h3>
         <i class="pi pi-angle-right" style="color: white; font-size: 12px;"></i>
-        <h3 class="text-base font-medium text-white">Add New Warehouse</h3>
+        <h3 class="text-base font-medium text-white">Add New Item</h3>
       </div>
-      <button
-        (click)="BackToWarehouses()"
-        class="text-sm text-white font-medium p-3 rounded-lg bg-[#416659]">
+      <a routerLink="warehouses"
+         class="text-sm text-white font-medium p-3 rounded-lg bg-[#416659]">
         Back To Warehouses
-      </button>
+      </a>
     </div>
 
     <div class="mt-3">
       <div class="box box--stacked">
         <div class="p-7">
 
-          <form [formGroup]="addWarehouseForm" (ngSubmit)="onSubmit()">
+          <form [formGroup]="addItemForm" (ngSubmit)="onSubmit()">
             <div class="flex-col block mt-5 xl:items-center sm:flex xl:flex-row first:mt-0 first:pt-0">
               <label class="inline-block mb-2 sm:mb-0 sm:text-right xl:w-60">
                 <div class="text-left">
                   <div class="flex items-center">
-                    <div class="text-sm font-medium">Warehouse Name</div>
+                    <div class="text-sm font-medium">Warehouse Item</div>
                     <div
                       class="ml-2.5 px-2 py-0.5 bg-slate-100 text-slate-500 text-[10px] rounded-md border border-slate-200">
                       Required
                     </div>
                   </div>
                   <div class="mt-1.5 text-xs leading-relaxed text-slate-500/80">
-                    Enter the full warehouse name.
+                    Enter the full item name.
                   </div>
                 </div>
               </label>
               <div class="flex-1">
                 <input pInputText
                        type="text"
-                       id="warehouseName"
-                       name="warehouseName"
-                       placeholder="Warehouse Name"
+                       id="WarehouseItem"
+                       name="WarehouseItem"
+                       placeholder="Item Name"
                        class="text-sm"
-                       formControlName="warehouseName"
+                       formControlName="itemName"
                 />
               </div>
             </div>
@@ -51,81 +50,79 @@
               <label class="inline-block mb-2 sm:mb-0 sm:text-right xl:w-60">
                 <div class="text-left">
                   <div class="flex items-center">
-                    <div class="text-sm font-medium">Address and City</div>
+                    <div class="text-sm font-medium">Quantity / SkuCode</div>
                     <div
                       class="ml-2.5 px-2 py-0.5 bg-slate-100 text-slate-500 text-[10px] rounded-md border border-slate-200">
-                      Required
+                      Required / Optional
                     </div>
                   </div>
                   <div class="mt-1.5 text-xs leading-relaxed text-slate-500/80">
-                    Enter the full warehouse Address and City.
+                    Enter the item quantity and skuCode.
                   </div>
                 </div>
               </label>
-              <div class="flex-1 flex-col sm:flex-row flex items-center gap-2">
+              <div class="flex items-center gap-2 flex-1">
                 <input pInputText
                        type="text"
-                       id="warehouseAddress"
-                       name="warehouseAddress"
-                       placeholder="Warehouse Address"
+                       id="ItemSkuCode"
+                       name="ItemSkuCode"
+                       placeholder="SkuCode"
                        class="text-sm"
-                       formControlName="warehouseAddress"
+                       formControlName="skuCode"
                 />
+
                 <input pInputText
-                       type="text"
-                       id="warehouseCity"
-                       name="warehouseCity"
-                       placeholder="Warehouse City"
+                       type="number"
+                       id="ItemQuantity"
+                       name="ItemQuantity"
+                       placeholder="Quantity"
                        class="text-sm"
-                       formControlName="warehouseCity"
+                       formControlName="qty"
                 />
               </div>
             </div>
 
             <div class="flex-col block mt-5 xl:items-center sm:flex xl:flex-row first:mt-0 first:pt-0">
-              <label class="inline-block mb-2 sm:mb-0sm:text-right xl:w-60">
+              <label class="inline-block mb-2 sm:mb-0 sm:text-right xl:w-60">
                 <div class="text-left">
                   <div class="flex items-center">
-                    <div class="text-sm font-medium">Warehouse Country</div>
+                    <div class="text-sm font-medium">Cost / MSR Price</div>
                     <div
                       class="ml-2.5 px-2 py-0.5 bg-slate-100 text-slate-500 text-[10px] rounded-md border border-slate-200">
                       Required
                     </div>
                   </div>
                   <div class="mt-1.5 text-xs leading-relaxed text-slate-500/80">
-                    Select warehouse country.
+                    Enter the item cost and msr price.
                   </div>
                 </div>
               </label>
-              <div class="flex-1">
-                <p-select
-                  [options]="countries"
-                  optionLabel="name"
-                  [filter]="true"
-                  filterBy="name"
-                  [showClear]="true"
-                  placeholder="Select a Country"
-                  class="w-full"
-                  formControlName="warehouseCountry"
-                >
+              <div class="flex items-center gap-2 flex-1">
+                <input pInputText
+                       type="number"
+                       id="ItemCostPrice"
+                       name="ItemCostPrice"
+                       placeholder="Cost Price"
+                       class="text-sm"
+                       formControlName="costPrice"
+                />
 
-                  <ng-template #selectedItem let-selectedOption>
-                    <div class="flex items-center gap-2">
-                      <div>{{ selectedOption?.name }}</div>
-                    </div>
-                  </ng-template>
-
-                  <ng-template let-country #item>
-                    <div class="flex items-center gap-2">
-                      <div class="text-primary-text!">{{ country.name }}</div>
-                    </div>
-                  </ng-template>
-
-                </p-select>
+                <input pInputText
+                       type="number"
+                       id="ItemMsrpPrice"
+                       name="ItemMsrpPrice"
+                       placeholder="Msr PPrice"
+                       class="text-sm"
+                       formControlName="msrpPrice"
+                />
               </div>
             </div>
 
-            <button type="submit" class="text-sm text-white font-medium p-3 rounded-lg bg-[#416659] block ml-auto mt-3 w-full sm:w-fit">Add Warehouse</button>
+
+            <button type="submit"
+                    class="text-sm text-white font-medium p-3 rounded-lg bg-[#416659] block ml-auto mt-3 w-full sm:w-fit">
+              Add Item
+            </button>
           </form>
 
         </div>

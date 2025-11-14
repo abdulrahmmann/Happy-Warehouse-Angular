@@ -1,74 +1,102 @@
 <app-layout>
 
-  <section class="">
-    <h3 class="text-base font-medium text-white">General Reports: Warehouses With Inventory</h3>
+  <div class="max-w-[1200px] mx-auto pb-3.5">
 
-    <div class="grid grid-cols-12 gap-5 mt-3">
-      @for(warehouse of warehouses; track $index) {
-        <article
-          class="space-y-2 col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-3 p-5 border border-dashed rounded-[0.6rem] border-slate-300/80 box box--stacked">
-          <h4 class="text-sm xl:text-base font-semibold text-slate-500">
-            <span class="text-theme-1 font-medium">Warehouse:</span> {{warehouse.warehouseName}}
-          </h4>
-          <h4 class="text-sm xl:text-base font-semibold text-slate-500">
-            <span class="text-theme-1 font-medium">Country:</span>{{warehouse.warehouseCountry}} - {{warehouse.warehouseCity}}
-          </h4>
-          <h4 class="text-sm xl:text-base font-semibold text-slate-500">
-            <span class="text-theme-1 font-medium">Inventory Counts:</span> {{warehouse.itemsCount}}
-          </h4>
-          <h4 class="text-sm xl:text-base font-semibold text-slate-500">
-            <span class="text-theme-1 font-medium">Quantity Count:</span> {{warehouse.qtyCounts}}
-          </h4>
-        </article>
-      }
-    </div>
-  </section>
+    <section class="">
+      <h3 class="text-base font-medium text-white">General Reports: Warehouses With Inventory</h3>
 
+      <div class="mt-3">
+        <p-table
+          [value]="warehouses"
+          [paginator]="true"
+          [rows]="5"
+          [tableStyle]="{ 'min-width': '65rem' }"
+          [rowsPerPageOptions]="[3, 5, 10]"
+        >
+          <ng-template #header>
+            <tr>
+              <th style="">Id</th>
+              <th style="">Name</th>
+              <th style="">Country</th>
+              <th style="">City</th>
+              <th style="">Items</th>
+              <th style="">Quantity</th>
+            </tr>
+          </ng-template>
+          <ng-template #body let-warehouse>
+            <tr>
+              <td>{{ warehouse.warehouseId}}</td>
+              <td>{{ warehouse.warehouseName}}</td>
+              <td>{{ warehouse.warehouseCountry}}</td>
+              <td>{{ warehouse.warehouseCity}}</td>
+              <td>{{ warehouse.itemsCount}}</td>
+              <td>{{ warehouse.qtyCounts}}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </section>
 
-  <section class="">
-    <h3 class="text-base font-medium mt-10">General Reports: Warehouse Status</h3>
+    <section class="">
+      <h3 class="text-base font-medium mt-10">General Reports: Warehouse Status</h3>
 
-    <div class="grid grid-cols-12 gap-5 mt-3">
-      @for(item of warehouseStatus; track $index) {
-        <article
-          class="space-y-2 col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-3 p-5 border border-dashed rounded-[0.6rem] border-slate-300/80 box box--stacked">
-          <h4 class="text-sm xl:text-base font-semibold text-slate-500">
-            <span class="text-theme-1 font-medium">WarehouseId:</span> {{item.warehouseId}}
-          </h4>
-          <h4 class="text-sm xl:text-base font-semibold text-slate-500">
-            <span class="text-theme-1 font-medium">WarehouseName:</span>{{item.warehouseName}}
-          </h4>
-          <h4 class="text-sm xl:text-base font-semibold text-slate-500">
-            <span class="text-theme-1 font-medium">TotalItems:</span> {{item.totalItems}}
-          </h4>
-        </article>
-      }
-    </div>
-  </section>
+      <div class="mt-3">
+        <p-table
+          [value]="warehouseStatus"
+          [paginator]="true"
+          [rows]="5"
+          [tableStyle]="{ 'min-width': '65rem' }"
+          [rowsPerPageOptions]="[3, 5, 10]"
+        >
+          <ng-template #header>
+            <tr>
+              <th style="">Id</th>
+              <th style="">Name</th>
+              <th style="">TotalItems</th>
+            </tr>
+          </ng-template>
+          <ng-template #body let-warehouse>
+            <tr>
+              <td>{{ warehouse.warehouseId}}</td>
+              <td>{{ warehouse.warehouseName}}</td>
+              <td>{{ warehouse.totalItems}}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </section>
 
+    <section class="">
+      <h3 class="text-base font-medium mt-10">General Reports: Top Items</h3>
 
-  <section class="">
-    <h3 class="text-base font-medium mt-10">General Reports: Top Items</h3>
+      <div class="mt-3">
+        <p-table
+          [value]="topItems"
+          [paginator]="true"
+          [rows]="5"
+          [tableStyle]="{ 'min-width': '65rem' }"
+          [rowsPerPageOptions]="[3, 5, 10]"
+        >
+          <ng-template #header>
+            <tr>
+              <th style="">ItemName</th>
+              <th style="">WarehouseName</th>
+              <th style="">Quantity</th>
+              <th style="">SkuCode</th>
+            </tr>
+          </ng-template>
+          <ng-template #body let-warehouse>
+            <tr>
+              <td>{{ warehouse.warehouseName}}</td>
+              <td>{{ warehouse.itemName}}</td>
+              <td>{{ warehouse.qty}}</td>
+              <td>{{ warehouse.skuCode}}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </section>
 
-    <div class="grid grid-cols-12 gap-5 mt-3">
-      @for(item of topItems; track $index) {
-        <article
-          class="space-y-2 col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-3 p-5 border border-dashed rounded-[0.6rem] border-slate-300/80 box box--stacked">
-          <h4 class="text-sm xl:text-base font-semibold text-slate-500">
-            <span class="text-theme-1 font-medium">WarehouseName:</span> {{item.warehouseName}}
-          </h4>
-          <h4 class="text-sm xl:text-base font-semibold text-slate-500">
-            <span class="text-theme-1 font-medium">ItemName:</span>{{item.itemName}}
-          </h4>
-          <h4 class="text-sm xl:text-base font-semibold text-slate-500">
-            <span class="text-theme-1 font-medium">Quantity:</span> {{item.qty}}
-          </h4>
-          <h4 class="text-sm xl:text-base font-semibold text-slate-500">
-            <span class="text-theme-1 font-medium">SkuCode:</span> {{item.skuCode}}
-          </h4>
-        </article>
-      }
-    </div>
-  </section>
+  </div>
 
 </app-layout>

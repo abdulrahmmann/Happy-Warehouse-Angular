@@ -6,7 +6,9 @@
       <div class="flex items-center gap-1">
         <h3 class="text-base font-medium text-white">Warehouses</h3>
         <i class="pi pi-angle-right" style="color: white; font-size: 12px;"></i>
-        <h3 class="text-base font-medium text-white">Add New Warehouse</h3>
+        <h3 class="text-base font-medium text-white">Update Warehouse</h3>
+        <i class="pi pi-angle-right" style="color: white; font-size: 12px;"></i>
+        <h3 class="text-base font-medium text-white">{{id}}</h3>
       </div>
       <button
         (click)="BackToWarehouses()"
@@ -19,7 +21,7 @@
       <div class="box box--stacked">
         <div class="p-7">
 
-          <form [formGroup]="addWarehouseForm" (ngSubmit)="onSubmit()">
+          <form [formGroup]="updateWarehouseForm" (ngSubmit)="onSubmit()">
             <div class="flex-col block mt-5 xl:items-center sm:flex xl:flex-row first:mt-0 first:pt-0">
               <label class="inline-block mb-2 sm:mb-0 sm:text-right xl:w-60">
                 <div class="text-left">
@@ -27,7 +29,7 @@
                     <div class="text-sm font-medium">Warehouse Name</div>
                     <div
                       class="ml-2.5 px-2 py-0.5 bg-slate-100 text-slate-500 text-[10px] rounded-md border border-slate-200">
-                      Required
+                      Optional
                     </div>
                   </div>
                   <div class="mt-1.5 text-xs leading-relaxed text-slate-500/80">
@@ -43,6 +45,7 @@
                        placeholder="Warehouse Name"
                        class="text-sm"
                        formControlName="warehouseName"
+                       [value]="warehouseById?.name"
                 />
               </div>
             </div>
@@ -54,7 +57,7 @@
                     <div class="text-sm font-medium">Address and City</div>
                     <div
                       class="ml-2.5 px-2 py-0.5 bg-slate-100 text-slate-500 text-[10px] rounded-md border border-slate-200">
-                      Required
+                      Optional
                     </div>
                   </div>
                   <div class="mt-1.5 text-xs leading-relaxed text-slate-500/80">
@@ -70,6 +73,7 @@
                        placeholder="Warehouse Address"
                        class="text-sm"
                        formControlName="warehouseAddress"
+                       [value]="warehouseById?.address"
                 />
                 <input pInputText
                        type="text"
@@ -78,6 +82,7 @@
                        placeholder="Warehouse City"
                        class="text-sm"
                        formControlName="warehouseCity"
+                       [value]="warehouseById?.city"
                 />
               </div>
             </div>
@@ -89,7 +94,7 @@
                     <div class="text-sm font-medium">Warehouse Country</div>
                     <div
                       class="ml-2.5 px-2 py-0.5 bg-slate-100 text-slate-500 text-[10px] rounded-md border border-slate-200">
-                      Required
+                      Optional
                     </div>
                   </div>
                   <div class="mt-1.5 text-xs leading-relaxed text-slate-500/80">
@@ -104,7 +109,7 @@
                   [filter]="true"
                   filterBy="name"
                   [showClear]="true"
-                  placeholder="Select a Country"
+                  [placeholder]="warehouseById?.countryName"
                   class="w-full"
                   formControlName="warehouseCountry"
                 >
@@ -125,13 +130,15 @@
               </div>
             </div>
 
-            <button type="submit" class="text-sm text-white font-medium p-3 rounded-lg bg-[#416659] block ml-auto mt-3 w-full sm:w-fit">Add Warehouse</button>
+            <button type="submit" class="text-sm text-white font-medium p-3 rounded-lg bg-[#416659] block ml-auto mt-3 w-full sm:w-fit">
+              Update Warehouse
+            </button>
           </form>
 
         </div>
       </div>
     </div>
 
-  </section>
+  </section>>
 
 </app-layout>

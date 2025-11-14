@@ -5,12 +5,14 @@ import {WarehouseWithInventoryDetailsModel} from './models/WarehouseWithInventor
 import {DashboardService} from './services/DashboardService';
 import {WarehouseStatusModel} from './models/WarehouseStatus.model';
 import {TopItemsModel} from './models/TopItems.model';
+import {TableModule} from 'primeng/table';
 
 @Component({
   selector: 'app-dashboard',
   imports: [
     ScrollPanelModule,
-    Layout
+    Layout,
+    TableModule
   ],
   templateUrl: './dashboard.html',
 })

@@ -36,6 +36,25 @@ export const routes: Routes = [
       import("../../features/warehouse/add-warehouse/add-warehouse").then(m => m.AddWarehouse),
     canActivate: [AuthGuard]
   },
+  {
+    path: "warehouse/warehouse-items/:id",
+    loadComponent: () =>
+      import("../../features/warehouse/warehouse-items/warehouse-items").then(m => m.WarehouseItems),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "warehouse/update-warehouse/:id",
+    loadComponent: () =>
+      import("../../features/warehouse/update-warehouse/update-warehouse").then(m => m.UpdateWarehouse),
+    canActivate: [AuthGuard]
+  },
+
+  {
+    path: "warehouses/:id/add-item",
+    loadComponent: () =>
+      import("../../features/warehouse/add-item/add-item").then(m => m.AddItem),
+    canActivate: [AuthGuard]
+  },
 
   {
     path: "welcome",

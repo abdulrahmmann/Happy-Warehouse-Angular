@@ -187,3 +187,22 @@ button {
   top: 0;
   margin-top: .75rem;
 }
+
+.p-datatable-thead > tr > th,
+.p-datatable-tbody > tr > td {
+  background-color: #fff !important;
+  color: #475569 !important;
+  border-bottom-color: var(--color-theme-1) !important;
+}
+.p-paginator {
+  background-color: var(--color-theme-1) !important;
+}
+
+.p-datatable-table-container {
+  border-radius: 6px !important;
+}
+
+.p-dialog {
+  background-color: white !important;
+  color: #475569 !important;
+}
